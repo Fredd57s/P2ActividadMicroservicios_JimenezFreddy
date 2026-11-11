@@ -1,0 +1,24 @@
+{
+  "name": "servicio-cliente",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.4",
+    "@types/node": "^26.6.5"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "add": "^2.0.9",
+    "bun": "^1.4.4",
+    "dotenv": "^18.0.9",
+    "fastify": "^5.12.7",
+    "pg": "^8.23.1",
+    "sequelize": "^6.37.8"
+  }
+}
