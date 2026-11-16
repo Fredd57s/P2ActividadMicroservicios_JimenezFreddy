@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Float, Integer, String
 
 from config.database import Base
 
@@ -8,3 +8,4 @@ class Producto(Base):
     nombre = Column(String(20))
     descripcion = Column(String(100))
     precio = Column(Float)
+    stock = Column(Integer)

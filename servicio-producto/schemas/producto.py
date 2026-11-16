@@ -1,4 +1,4 @@
-from pydantic import Basemodel, ConfigDict
+from pydantic import BaseModel, ConfigDict
 
 class ProductoCreate(BaseModel):
     nombre: str

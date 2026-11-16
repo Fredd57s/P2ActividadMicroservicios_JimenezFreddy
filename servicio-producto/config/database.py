@@ -1,4 +1,4 @@
-from sqlalchemy import crate_engine
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 engine = create_engine("sqlite:///./producto.db")
@@ -15,8 +15,6 @@ def obtener_db():
     db = SessionLocal()
     try:
         yield db
-    except:
-        print("Ocurrió un error en la captura de datos")
     finally:
         db.close()
 
