@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-import { FacturaModule } from './factura/factura.module.js';
+import { FacturaModule } from './modules/factura/factura.module.js';
 
 @Module({
   imports: [FacturaModule],

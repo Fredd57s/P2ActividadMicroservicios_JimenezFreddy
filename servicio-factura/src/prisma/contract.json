@@ -32,7 +32,7 @@
               "descuento": {
                 "nullable": false,
                 "type": {
-                  "codecId": "mongo/decimal128@1",
+                  "codecId": "mongo/double@1",
                   "kind": "scalar"
                 }
               },
@@ -59,21 +59,21 @@
               "iva": {
                 "nullable": false,
                 "type": {
-                  "codecId": "mongo/decimal128@1",
+                  "codecId": "mongo/double@1",
                   "kind": "scalar"
                 }
               },
               "total": {
                 "nullable": false,
                 "type": {
-                  "codecId": "mongo/decimal128@1",
+                  "codecId": "mongo/double@1",
                   "kind": "scalar"
                 }
               },
               "total_a_pagar": {
                 "nullable": false,
                 "type": {
-                  "codecId": "mongo/decimal128@1",
+                  "codecId": "mongo/double@1",
                   "kind": "scalar"
                 }
               }
@@ -148,7 +148,7 @@
                       "bsonType": "string"
                     },
                     "descuento": {
-                      "bsonType": "decimal"
+                      "bsonType": "double"
                     },
                     "detalles_factura": {
                       "bsonType": "array",
@@ -185,13 +185,13 @@
                       "bsonType": "date"
                     },
                     "iva": {
-                      "bsonType": "decimal"
+                      "bsonType": "double"
                     },
                     "total": {
-                      "bsonType": "decimal"
+                      "bsonType": "double"
                     },
                     "total_a_pagar": {
-                      "bsonType": "decimal"
+                      "bsonType": "double"
                     }
                   },
                   "required": [
@@ -258,7 +258,7 @@
         "kind": "mongo-database"
       }
     },
-    "storageHash": "73dba19f86b1ef96ed52cc096327d99a126b95a3c1a54046de89b4f6ee935703"
+    "storageHash": "5480a96448725fb984b65bae825bb8a780fae4d82664c36b5e6359870e458f09"
   },
   "capabilities": {},
   "extensions": {},
