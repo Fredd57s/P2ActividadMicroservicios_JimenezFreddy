@@ -159,9 +159,6 @@
                           "cantidad": {
                             "bsonType": "int"
                           },
-                          "cod_factura": {
-                            "bsonType": "int"
-                          },
                           "cod_producto": {
                             "bsonType": "int"
                           },
@@ -174,7 +171,6 @@
                         },
                         "required": [
                           "cantidad",
-                          "cod_factura",
                           "cod_producto",
                           "codigo",
                           "subtotal"
@@ -222,13 +218,6 @@
                     "kind": "scalar"
                   }
                 },
-                "cod_factura": {
-                  "nullable": false,
-                  "type": {
-                    "codecId": "mongo/int32@1",
-                    "kind": "scalar"
-                  }
-                },
                 "cod_producto": {
                   "nullable": false,
                   "type": {
@@ -258,7 +247,7 @@
         "kind": "mongo-database"
       }
     },
-    "storageHash": "5480a96448725fb984b65bae825bb8a780fae4d82664c36b5e6359870e458f09"
+    "storageHash": "feac374015c3291132446b7071ecadeb0da1985255bbd42646d27f5f826685cc"
   },
   "capabilities": {},
   "extensions": {},

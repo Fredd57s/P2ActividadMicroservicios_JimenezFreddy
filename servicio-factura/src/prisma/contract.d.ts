@@ -23,7 +23,7 @@ import type {
 } from '@prisma/orm-mongo/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'5480a96448725fb984b65bae825bb8a780fae4d82664c36b5e6359870e458f09'>;
+  StorageHashBase<'feac374015c3291132446b7071ecadeb0da1985255bbd42646d27f5f826685cc'>;
 export type ExecutionHash = ExecutionHashBase<string>;
 export type ProfileHash =
   ProfileHashBase<'251b3ce23f6c9f561892e7c1af9d2cc941a13d64ba1aa7226b90036b09568cc3'>;
@@ -121,14 +121,12 @@ type ContractBase = Omit<
                         readonly bsonType: 'object';
                         readonly properties: {
                           readonly cantidad: { readonly bsonType: 'int' };
-                          readonly cod_factura: { readonly bsonType: 'int' };
                           readonly cod_producto: { readonly bsonType: 'int' };
                           readonly codigo: { readonly bsonType: 'int' };
                           readonly subtotal: { readonly bsonType: 'double' };
                         };
                         readonly required: readonly [
                           'cantidad',
-                          'cod_factura',
                           'cod_producto',
                           'codigo',
                           'subtotal',
@@ -162,10 +160,6 @@ type ContractBase = Omit<
             readonly DetalleFactura: {
               readonly fields: {
                 readonly cantidad: {
-                  readonly nullable: false;
-                  readonly type: { readonly kind: 'scalar'; readonly codecId: 'mongo/int32@1' };
-                };
-                readonly cod_factura: {
                   readonly nullable: false;
                   readonly type: { readonly kind: 'scalar'; readonly codecId: 'mongo/int32@1' };
                 };
