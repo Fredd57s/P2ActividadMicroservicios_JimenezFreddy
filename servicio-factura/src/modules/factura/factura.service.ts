@@ -1,17 +1,23 @@
 import { Injectable, NotFoundException, ConflictException, BadRequestException, ServiceUnavailableException } from '@nestjs/common';
-import {db} from '../../prisma/db';
+import { db } from '../../prisma/db.js';
 import {Factura} from '../../models/factura.model';
 import { DetalleFactura } from '../../models/detalles-factura.model';
 import { ProductoClienteService } from '../../services/producto-cliente.service.js';
+import { ClienteService } from '../../services/cliente.service.js';
 
 @Injectable()
 export class FacturaService {
-    constructor(private readonly productoCliente: ProductoClienteService) {}
+    constructor(
+        private readonly productoCliente: ProductoClienteService,
+        private readonly clienteService: ClienteService
+    ) {}
     async crear (data : Factura) {
         const factura = await db.orm.Factura.where({codigo: data.codigo}).first();
         if(factura){
             throw new   ConflictException("Código ya existente")
         }
+
+        await this.clienteService.verificarCliente(data.cod_cliente);
 
         return db.orm.Factura.create({...data, fecha: new Date(data.fecha)});
     }
@@ -143,8 +149,8 @@ export class FacturaService {
         if (detalles.length === factura.detalles_factura.length) {
             throw new NotFoundException("Detalle no encontrado");
         }
-        return db.orm.Factura.where({ id: factura.id })
-        .update({ detalles_factura: detalles });
+        return db.orm.Factura.where({ codigo })
+            .update({ detalles_factura: detalles });
     }
 
     public async calcularsubtotal(codProducto: number, cantidad: number): Promise<number> {

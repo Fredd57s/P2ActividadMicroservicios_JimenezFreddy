@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Put, Patch, Delete, Param, Body } from '@nestjs/common';
-import { FacturaService } from './factura.service';
+import { Controller, Get, Post, Put, Patch, Delete, Param, Body, ParseIntPipe } from '@nestjs/common';
+import { FacturaService } from './factura.service.js';
 import { DetalleFactura } from '../../models/detalles-factura.model';
 
-@Controller('factura')
+@Controller('facturas')
 export class FacturaController {
     constructor(private readonly facturaService: FacturaService){}
 
@@ -37,18 +37,21 @@ export class FacturaController {
         return this.facturaService.agregarDetalle(codigo, data);
     }
 
-    @Delete(':codigo')
-    eliminarDetalle(@Param('codigo') codigo: string, detalleId: number) {
+    @Delete(':codigo/detalles/:detalleId')
+    eliminarDetalle(
+        @Param('codigo') codigo: string,
+        @Param('detalleId', ParseIntPipe) detalleId: number
+    ) {
         return this.facturaService.eliminarDetalle(codigo, detalleId);
     }
 
     @Patch(':codigo/detalle/:codigoDetalle')
     actualizarDetalle(
         @Param('codigo') codigo: string,
-        @Param('codigoDetalle') codigoDetalle: number,
-        @Body() data: Partial<number>
+        @Param('codigoDetalle', ParseIntPipe) codigoDetalle: number,
+        @Body('cantidad', ParseIntPipe) cantidad: number
     ) {
-        return this.facturaService.actualizarDetalle(codigo, codigoDetalle, data);
+        return this.facturaService.actualizarDetalle(codigo, codigoDetalle, cantidad);
     }
 
 }
