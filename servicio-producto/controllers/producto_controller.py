@@ -3,7 +3,7 @@ from models.producto import Producto
 from schemas.producto import ProductoCreate
 
 def obtener_productos(db : Session):
-    return db.query(Producto).all
+    return db.query(Producto).all()
 
 def obtener_productos_id(db : Session, codigo : int):
     return db.query(Producto).filter(Producto.codigo == codigo).first()

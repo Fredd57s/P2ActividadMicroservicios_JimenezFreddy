@@ -16,13 +16,14 @@ export class ProductoClienteService{
             }
 
             if (!respuesta.ok) {
-                throw new NotFoundException("Error al encontrar el producto");
+                throw new ServiceUnavailableException("Error al encontrar el producto");
             }
             const json = await respuesta.json();
             return json as Producto;
             
         } catch (error){
-            console.log(error)
+            if (error instanceof NotFoundException) throw error;
+            throw new ServiceUnavailableException('Servicio de productos no disponible');
         }
     }
 }

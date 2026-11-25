@@ -9,6 +9,7 @@ export class FacturaController {
     @Get()
     listar(){
         this.facturaService.listar();
+        return this.facturaService.listar();
     }
 
     @Get(':codigo')
@@ -42,7 +43,7 @@ export class FacturaController {
         @Param('codigo') codigo: string,
         @Param('detalleId', ParseIntPipe) detalleId: number
     ) {
-        return this.facturaService.eliminarDetalle(codigo, detalleId);
+        return this.facturaService.eliminarDetalle2(codigo, detalleId);
     }
 
     @Patch(':codigo/detalle/:codigoDetalle')

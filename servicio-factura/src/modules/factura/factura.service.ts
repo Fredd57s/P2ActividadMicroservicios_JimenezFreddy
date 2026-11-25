@@ -55,6 +55,9 @@ export class FacturaService {
 
 
     async actualizar2(codigo: string, data: Partial<Factura>) {
+        if (data.cod_cliente !== undefined) {
+            await this.clienteService.verificarCliente(data.cod_cliente);
+        }
         const cambios:Record<string, unknown> = {...data}
         if(data.fecha){
             cambios.fecha = new Date(data.fecha);

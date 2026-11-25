@@ -6,7 +6,8 @@ from router.productor_router import router as producto_router
 app = FastAPI(
     title="Servicio Producto",
     description="Servicio desarrollado en Clases de Arquitectura de Software",
-    version="1.0.0"
+    version="1.0.0",
+    redirect_slashes= False,
 )
 
 Base.metadata.create_all(bind=engine)

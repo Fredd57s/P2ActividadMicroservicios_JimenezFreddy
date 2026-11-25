@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
-
+#PONER .env
 engine = create_engine("sqlite:///./producto.db")
 
 SessionLocal = sessionmaker(
